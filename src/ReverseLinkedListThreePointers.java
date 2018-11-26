@@ -37,7 +37,7 @@ public class ReverseLinkedListThreePointers {
 
 
 
-        //Comment 1
+        //Comment 2
         while (current != null) {
 
             future = current.getNext();
