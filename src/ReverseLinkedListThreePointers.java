@@ -2,7 +2,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-public class ReverseLinkedList {
+public class ReverseLinkedListThreePointers {
 
 
     @Data
@@ -28,18 +28,25 @@ public class ReverseLinkedList {
         Node n2 = new Node(2, n3);
         Node n1 = new Node(1, n2);
 
-        Node head  = new Node();
-        head = n1;
+        Node current = n1;
 
-        printLinkedList(head);
+        printLinkedList(current);
 
-        Node tail = new Node();
+        Node previous = null;
+        Node future = null;
 
-        tail = findLinkedListTail(head);
 
-        head = reverseLinkedList(head);
 
-        printLinkedList(tail);
+        while (current != null) {
+
+            future = current.getNext();
+            current.setNext(previous);
+            previous = current;
+            current = future;
+
+        }
+
+        printLinkedList(previous);
 
 
     }
@@ -55,29 +62,5 @@ public class ReverseLinkedList {
         }
     }
 
-    public static Node reverseLinkedList(Node head) {
 
-        if (head.getNext() == null) {
-
-            return head;
-        }
-
-        Node temp = reverseLinkedList(head.getNext());
-        temp.setNext(head);
-        head.setNext(null);
-
-        return head;
-
-
-    }
-
-    public static Node findLinkedListTail(Node head) {
-
-        while (head.getNext() != null) {
-
-            head = head.getNext();
-        }
-
-        return head;
-    }
 }
