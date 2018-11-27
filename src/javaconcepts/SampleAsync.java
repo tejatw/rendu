@@ -1,19 +1,20 @@
+package javaconcepts;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class CM {
+public class SampleAsync {
 
 	
 	public static void main (String args[]) {
 		
-		CM cm = new CM();
+		SampleAsync sampleAsync = new SampleAsync();
 		
 		Future<String> response = null;
 		
 		try {
-			response = cm.calculateAsync();
+			response = sampleAsync.calculateAsync();
 			
 			System.out.println(response.get());
 		} catch (InterruptedException | ExecutionException e) {

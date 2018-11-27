@@ -9,13 +9,15 @@ public class FindNode {
         List<Integer> list1 = new ArrayList<>(Arrays.asList(7, 5, 9, 12));
         List<Integer> list2 = new ArrayList<>(Arrays.asList(1, 2, 4, 8));
         List<Integer> list3 = new ArrayList<>(Arrays.asList(3, 5, 6, 10));
+        List<Integer> list4 = new ArrayList<>(Arrays.asList(2, 4, 10));
 
         List<List<Integer>> listOfLists = new ArrayList<>();
         listOfLists.add(list1);
         listOfLists.add(list2);
         listOfLists.add(list3);
+        listOfLists.add(list4);
 
-        Integer node1 = 5, node2 = 6;
+        Integer node1 = 12, node2 = 2;
 
 
         Map<Integer, List<Integer>> counterMap = new HashMap<>();
@@ -43,13 +45,13 @@ public class FindNode {
 
             if (secondList.contains(item)){
 
-                System.out.println("Nodes are connected");
+                System.out.println("Nodes " + node1 + " and " + node2 + " are connected");
                 System.exit(0);
             }
 
         }
 
-        System.out.println("Nodes are not connected");
+        System.out.println("Nodes " + node1 + " and " + node2 + " are not connected");
 
 //        listOfLists.stream().forEach(list -> {
 //

@@ -1,3 +1,5 @@
+package javaconcepts;
+
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -55,7 +57,7 @@ public final class FinalClassExample {
      * @param hm
      */
     /**
-     public FinalClassExample(int i, String n, HashMap<String,String> hm){
+     public javaconcepts.FinalClassExample(int i, String n, HashMap<String,String> hm){
      System.out.println("Performing Shallow Copy for Object initialization");
      this.id=i;
      this.name=n;

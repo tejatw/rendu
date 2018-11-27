@@ -1,6 +1,8 @@
+package algorithms;
+
 import java.util.*;
 import java.lang.*;
-import java.io.*;
+
 class cell{
     int x,y,dis;
     public cell(int x,int y,int dis){

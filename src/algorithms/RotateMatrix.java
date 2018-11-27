@@ -1,4 +1,4 @@
-// Java program to rotate a matrix by 90 degrees 
+package algorithms;// Java program to rotate a matrix by 90 degrees
 import java.io.*; 
    
 class RotateMatrix  
