@@ -9,6 +9,7 @@ public class Computer {
     //optional parameters
     private boolean isGraphicsCardEnabled;
     private boolean isBluetoothEnabled;
+    private String cpu;
 
 
     public String getHDD() {
@@ -32,6 +33,7 @@ public class Computer {
         this.RAM=builder.RAM;
         this.isGraphicsCardEnabled=builder.isGraphicsCardEnabled;
         this.isBluetoothEnabled=builder.isBluetoothEnabled;
+        this.cpu=builder.cpu;
     }
 
     //Builder Class
@@ -44,6 +46,7 @@ public class Computer {
         // optional parameters
         private boolean isGraphicsCardEnabled;
         private boolean isBluetoothEnabled;
+        private String cpu;
 
         public ComputerBuilder(String hdd, String ram){
             this.HDD=hdd;
@@ -57,6 +60,11 @@ public class Computer {
 
         public ComputerBuilder setBluetoothEnabled(boolean isBluetoothEnabled) {
             this.isBluetoothEnabled = isBluetoothEnabled;
+            return this;
+        }
+
+        public ComputerBuilder setCpu(String cpu) {
+            this.cpu = cpu;
             return this;
         }
 
