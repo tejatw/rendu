@@ -7,7 +7,7 @@ public class TestDates {
 
     public static void main(String... args) throws ParseException {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date1 = sdf.parse("2009-12-31");
         Date date2 = sdf.parse("2010-01-31");
 
@@ -22,6 +22,11 @@ public class TestDates {
             System.out.println("Date1 is equal to Date2");
         } else {
             System.out.println("How to get here?");
-        }
+        }*/
+
+//        System.out.println(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+
+        String workflowStatus = "Cost Price Upload Complete";
+        System.out.println(workflowStatus.replace(" ", "").toLowerCase());
     }
 }
