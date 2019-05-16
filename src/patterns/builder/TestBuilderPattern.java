@@ -1,4 +1,4 @@
-package patterns;
+package patterns.builder;
 
 public class TestBuilderPattern {
 
