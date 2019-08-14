@@ -6,7 +6,9 @@ public class TestToken {
 
     public static void main(String... args) {
 
-        long startToken = -9223372036854775808L;
+//        long startToken = -9223372036854775808L;
+
+        long startToken = Long.MIN_VALUE;
 
         long incrementer = 273101875948331383L;
 
