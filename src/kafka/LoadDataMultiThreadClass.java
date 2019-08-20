@@ -4,8 +4,8 @@ package kafka;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.LongSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Lookup;
 
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,6 +49,9 @@ class LoadKafka implements Runnable {
 
         long startTime = System.currentTimeMillis();
 
+        //verify applying back pressure
+        System.out.printf("Started thread %d at %s\n", threadNumber, new Date());
+
         try {
             for (int index = startIndex; index <= endIndex; index++) {
                 final ProducerRecord<Long, String> record =
@@ -69,6 +72,7 @@ class LoadKafka implements Runnable {
         }
 
         System.out.printf("Time taken by thread %d is %d\n", threadNumber, (System.currentTimeMillis() - startTime));
+        System.out.printf("Ended thread %d at %s\n", threadNumber, new Date());
     }
 }
 
@@ -76,13 +80,18 @@ public class LoadDataMultiThreadClass {
 
     public static void main(String... args) {
 
-        LoadKafka lk1 = new LoadKafka(1, 10000, 1);
-        LoadKafka lk2 = new LoadKafka(10001, 20000, 2);
-
         ExecutorService threadPool = Executors.newFixedThreadPool(2);
 
-        threadPool.execute(lk1);
-        threadPool.execute(lk2);
+        for (int i = 0; i < 10; i++) {
+
+            threadPool.execute(new LoadKafka((100000 * i + 1), (100000 * (i + 1)), (i+1)));
+        }
+
+//        LoadKafka lk1 = new LoadKafka(1, 10000, 1);
+//        LoadKafka lk2 = new LoadKafka(10001, 20000, 2);
+
+//        threadPool.execute(lk1);
+//        threadPool.execute(lk2);
 
         threadPool.shutdown();
     }
