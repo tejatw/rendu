@@ -46,7 +46,6 @@ public class LoadDataMultiThread {
 
     public static void main(String... args) {
 
-
         try {
 
             Thread t1 = new Thread(new Runnable() {
